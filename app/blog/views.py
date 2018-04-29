@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 from .models import Post
 
-# Create your views here.
 def index(request):
     posts = Post.objects.filter(is_published=True).order_by('-created_at')
     return render(request, 'blog/index.html',{'posts':posts})
